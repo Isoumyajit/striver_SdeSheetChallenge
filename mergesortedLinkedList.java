@@ -1,11 +1,11 @@
 import java.util.*;
 import java.io.*;
 
-class LinkedListNode<T> {
-    T data;
-    LinkedListNode<T> next;
+class LinkedListNode<Integer> {
+    Integer data;
+    LinkedListNode<Integer> next;
 
-    public LinkedListNode(T data) {
+    public LinkedListNode(Integer data) {
         this.data = data;
     }
 }
