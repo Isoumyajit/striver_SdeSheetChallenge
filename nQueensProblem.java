@@ -7,7 +7,6 @@ public class nQueensProblem {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
         System.out.println(solveNQueens(n));
-
         sc.close();
     }
 
@@ -16,7 +15,6 @@ public class nQueensProblem {
         ArrayList<ArrayList<Integer>> answer = new ArrayList<>();
         int[][] chessBoard = new int[n][n];
         placeQueens(chessBoard, answer, 0);
-
         return answer;
 
     }
