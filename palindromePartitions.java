@@ -1,6 +1,16 @@
 import java.util.*;
 
 public class palindromePartitions {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        String str = sc.nextLine();
+        int len = str.length();
+        boolean[][] dp = new boolean[len + 1][len + 1];
+        generateDP(str, dp);
+        sc.close();
+    }
+
     public static List<List<String>> partition(String s) {
         // Write your code here.
         int len = s.length();
@@ -45,5 +55,33 @@ public class palindromePartitions {
             end--;
         }
         return true;
+    }
+
+    /*
+     * Using a help from Dynamic Programming
+     */
+
+    private static void generateDP(String str, boolean[][] dp) {
+
+        int len = str.length();
+        for (int i = 0; i < len; i++)
+            dp[i][i] = true;
+        for (int i = 0, j = 1; j < len; i++, j++) {
+            if (str.charAt(i) == str.charAt(j))
+                dp[i][j] = true;
+        }
+        int index_count = 2;
+        while (index_count < len) {
+            int j = index_count;
+            for (int i = 0; j < len; i++, j++) {
+                if (str.charAt(i) == str.charAt(j)) {
+                    if (dp[i + 1][j - 1])
+                        dp[i][j] = true;
+                    else
+                        dp[i][j] = false;
+                } else
+                    dp[i][j] = false;
+            }
+        }
     }
 }
