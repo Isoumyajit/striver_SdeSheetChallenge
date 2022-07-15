@@ -3,8 +3,8 @@ import java.util.Map;
 
 public class LFUcache {
 
-    Map<Integer, Nodes> helper = null;
-    Map<Integer, LRUcache> frq = null;
+    static Map<Integer, Nodes> helper = null;
+    static Map<Integer, LRUcache> frq = null;
     Nodes start = null;
     Nodes end = null;
     int size = 0;
@@ -29,8 +29,21 @@ public class LFUcache {
     void put(int key, int value) {
         // Write your code here.
         Nodes node = new Nodes(key, value);
-        helper.put(key, node);
-        helper.put(1, )
+        if (helper.containsKey(key)) {
+            Nodes exist = helper.get(key);
+            exist.frquency += 1;
+            if (frq.containsKey(exist.frquency)) {
+                LRUcache temp = frq.get(exist.frquency);
+                temp.removeLast(exist);
+                temp.addFront(exist);
+            }
+        } else {
+            if (size < capacity) {
+
+            } else {
+
+            }
+        }
 
     }
 }
@@ -50,8 +63,9 @@ class LRUcache {
     }
 
     int get(int key) {
+
         removeLast();
-        return 
+        return 0;
     }
 
     void put(int key, int value) {
@@ -68,8 +82,7 @@ class LRUcache {
     }
 
     void removeLast(Nodes key) {
-        end.prev.prev.next = end;
-        end.prev = end.prev.prev;
+        key.prev.next = key.next.prev;
         size--;
     }
 }
@@ -77,6 +90,7 @@ class LRUcache {
 class Nodes {
     int data;
     int key;
+    int frquency;
     Nodes next;
     Nodes prev;
 
