@@ -30,6 +30,8 @@ public class count_say {
             answer.append(end - start);
             answer.append(temp.charAt(start));
         }
+        StringBuffer s = new StringBuffer();
+
         return answer.toString();
     }
 }
