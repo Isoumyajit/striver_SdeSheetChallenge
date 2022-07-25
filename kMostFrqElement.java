@@ -19,6 +19,7 @@ public class kMostFrqElement {
                 heap.poll();
         }
         int i = 0;
+
         while (!heap.isEmpty()) {
             ans[i++] = heap.poll().getKey();
         }
