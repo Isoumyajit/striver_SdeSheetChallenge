@@ -1,23 +1,18 @@
 
-/*************************************************************
-    
-    Following is the Binary Tree node structure:
-
-    class BinaryTreeNode {
-
-	int data;
-	BinaryTreeNode left;
-	BinaryTreeNode right;
-	
-	BinaryTreeNode(int data) {
-		this.data = data;
-		left = null;
-		right = null;
-	   }
-    }
-
-*************************************************************/
 import java.util.*;
+
+class BinaryTreeNode {
+
+    int data;
+    BinaryTreeNode left;
+    BinaryTreeNode right;
+
+    BinaryTreeNode(int data) {
+        this.data = data;
+        left = null;
+        right = null;
+    }
+}
 
 public class pairSuminBST {
     public static boolean pairSumBst(BinaryTreeNode root, int k) {

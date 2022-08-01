@@ -32,10 +32,8 @@ public class topologicalSort {
 
     private static void dfs(List<Integer>[] lst, int node, boolean[] visited, Stack<Integer> helperstack) {
         visited[node] = true;
-        boolean flag = true;
         for (int n : lst[node]) {
             if (!visited[n]) {
-                flag = false;
                 dfs(lst, n, visited, helperstack);
             }
         }
