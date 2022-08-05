@@ -26,6 +26,7 @@ public class longestIncreasingsubsequence {
                 helper[i][j] = len;
             }
         }
+        return prev;
     }
 
 }

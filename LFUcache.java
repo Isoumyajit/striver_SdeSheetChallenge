@@ -64,7 +64,6 @@ class LRUcache {
 
     int get(int key) {
 
-        removeLast();
         return 0;
     }
 

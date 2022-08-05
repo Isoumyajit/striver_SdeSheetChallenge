@@ -40,7 +40,7 @@ public class maximumPathSum {
             countLeaf++;
         long left = findMax(root.left);
         long right = findMax(root.right);
-        maxsum = Math.max(maxsum, (left + right + root.data));
-        return root.data + Math.max(left, right);
+        maxsum = Math.max(maxsum, (left + right + (long) root.data));
+        return (long) root.data + Math.max(left, right);
     }
 }
