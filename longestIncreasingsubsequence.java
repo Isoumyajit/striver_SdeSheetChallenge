@@ -29,4 +29,34 @@ public class longestIncreasingsubsequence {
         return prev;
     }
 
+    /// using binarySeach
+
+    private static int findMaxLength(int[] nums) {
+
+        ArrayList<Integer> helper = new ArrayList<>();
+        helper.add(nums[0]);
+        for (int i = 1; i < nums.length; i++) {
+            if (helper.get(helper.size() - 1) < nums[i])
+                helper.add(nums[i]);
+            else {
+                int index = binarySearch(helper, nums[i]);
+                helper.set(index, nums[i]);
+            }
+        }
+        return helper.size();
+
+    }
+
+    private static int binarySearch(ArrayList<Integer> arr, int x) {
+        int low = 0;
+        int high = arr.size() - 1;
+        while (low <= high) {
+            int mid = low + (high - low) / 2;
+            if (arr.get(mid) < x)
+                low = mid + 1;
+            else
+                high = mid - 1;
+        }
+        return low;
+    }
 }
